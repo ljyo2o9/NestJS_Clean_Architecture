@@ -31,7 +31,7 @@ src/
   │   │   ├── entity/                   # ORM에서 사용하는 DB Entity ( 도메인 모델과 분리 )
   │   │   │   └── ${xxx}.orm-entity.ts
   │   │   └── repository/               # 도메인 인터페이스의 실제 구현
-  │   │       └── ${xxx}.orm-repository.ts
+  │   │       └── ${xxx}.repository-impl.ts
   └── presentation/                     # 외부에 노출되는 계층
       └── ${xxx}/
           ├── controller/               # API endpoint 정의
