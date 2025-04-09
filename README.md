@@ -18,12 +18,12 @@ src/
   │      │   └── xxx.model.ts
   │      ├── repository/                # 도메인에서 사용할 인터페이스 (구현 X)
   │      │   └── xxx.repository.interface.ts
-  │      └── usecase/                   # 비즈니스 수행 로직
+  │      └── usecase/                   # 비즈니스 수행에 필요한 최소 단위
   │          ├── command/               # UseCase 입력 데이터 정의 (DTO와 분리된 값 객체)
   │          │   └── create-xxx.command.ts
   │          ├── create-xxx.usecase.ts
   │          └── get-xxx.usecase.ts
-  ├── application/                      # 도메인 유스케이스를 조합, Dto - Command 값 변환
+  ├── application/                      # 유스케이스를 조합한 비즈니스 로직, Dto - Command 값 변환
   │   └── ${xxx}/
   │       └── xxx.service.ts
   ├── infrastructure/                   # 외부 시스템과의 연동
