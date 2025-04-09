@@ -3,13 +3,11 @@ const UserBrand: unique symbol = Symbol('User');
 export class User {
   readonly [UserBrand]: void;
 
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  createdAt: Date;
-
-  constructor(params: Partial<User>) {
-    Object.assign(this, params);
-  }
+  constructor(
+    public readonly id: string,
+    public readonly name: string,
+    public readonly email: string,
+    public readonly password: string,
+    public readonly createdAt: Date,
+  ) {}
 }

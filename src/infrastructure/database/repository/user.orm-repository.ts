@@ -17,29 +17,33 @@ export class UserOrmRepository implements UserRepository {
     return userEntity ? this.toUser(userEntity) : null;
   }
 
-  async save(user: User): Promise<User | null> {
-    const userEntity = this.toUserEntity(user);
+  async save(
+    name: string,
+    email: string,
+    password: string,
+  ): Promise<User | null> {
+    const userEntity = this.toUserEntity({ name, email, password });
     const savedEntity = await this.userRepository.save(userEntity);
     return savedEntity ? this.toUser(savedEntity) : null;
   }
 
   private toUser(userEntity: UserOrmEntity): User {
-    return new User({
-      id: userEntity.id,
-      name: userEntity.name,
-      email: userEntity.email,
-      password: userEntity.password,
-      createdAt: userEntity.createdAt,
-    });
+    return new User(
+      userEntity.id,
+      userEntity.name,
+      userEntity.email,
+      userEntity.password,
+      userEntity.createdAt,
+    );
   }
 
-  private toUserEntity(user: User): UserOrmEntity {
+  private toUserEntity(user: Partial<User>): UserOrmEntity {
     const userEntity = new UserOrmEntity();
-    userEntity.id = user.id;
-    userEntity.name = user.name;
-    userEntity.email = user.email;
-    userEntity.password = user.password;
-    userEntity.createdAt = user.createdAt;
+    user.id ? (userEntity.id = user.id) : null;
+    user.name ? (userEntity.name = user.name) : null;
+    user.email ? (userEntity.email = user.email) : null;
+    user.password ? (userEntity.password = user.password) : null;
+    user.createdAt ? (userEntity.createdAt = user.createdAt) : null;
     return userEntity;
   }
 }

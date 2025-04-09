@@ -19,13 +19,11 @@ export class CreateUserUseCase {
       throw new Error('유저가 이미 존재함');
     }
 
-    const userModel = new User({
-      email: command.email,
-      name: command.name,
-      password: command.password,
-    });
-
-    const user = await this.userRepository.save(userModel);
+    const user = await this.userRepository.save(
+      command.email,
+      command.name,
+      command.password,
+    );
     if (user != null) {
       return user;
     }
