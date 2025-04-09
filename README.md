@@ -2,6 +2,8 @@
 도메인 중심 설계를 기반으로 한 NestJS Clean Architecture 구조 예시입니다.
 도메인과 애플리케이션 로직을 명확하게 분리하고, 외부와의 통신은 변경에 유연하게 대응할 수 있도록 설계되어 있습니다.
 
+![Clean Architecture](./image/clean_architecture.png)
+
 📁 디렉토리 구조 예시
 ```
 src/
